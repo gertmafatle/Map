@@ -1,8 +1,39 @@
-import React, { useState } from 'react';
+import { Container } from 'reactstrap';
+import Header from './components/header';
+import React, { Component } from 'react';
+import Map from './components/map';
+import './App.css';
+require('dotenv').config()
+//import Container from 'reactstrap/lib/Container';
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      applicationName: 'Map Layout'
+    }
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        <Header appName={this.state.applicationName}/>
+        <Container>
+          <Map />
+        </Container>
+      </div>
+    )
+  }
+}
+
+export default App;
+
+/** import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 const Example = (props) => {
-  
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
@@ -27,4 +58,4 @@ const Example = (props) => {
   );
 }
 
-export default Example;
+export default Example; */
